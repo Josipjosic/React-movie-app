@@ -9,7 +9,7 @@ const Movie = ({ title, poster_path, release_date, vote_average ,original_langua
         </div>
         <img src={IMG_API + poster_path} alt={title} />   
         <div className="movie-info">
-            <h3>{title} ({release_date})</h3>
+            <h3>{title} ({release_date}) </h3>
             <h5 className="movie-lang">Language: {original_language} </h5>
         </div>
     </div>

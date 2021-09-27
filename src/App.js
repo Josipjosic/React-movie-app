@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Movie from './components/movies.js'
+import Movie from './components/movies.js';
+import shuffle from './components/img/Shuffle.png';
 
 
 const FEATURED_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=25410d167eb58e717d563b65bc206ff7";  
@@ -35,7 +36,7 @@ return (
         )};
         <div className="button-container">
           <button className="buttonLoad" onClick={showMoreItems}>Load</button>
-          <button className="buttonRoullete" onClick={showMoreItems}>Load</button>
+          <button className="buttonRoullete" onClick={showMoreItems}> <img src={shuffle} alt="Shuffle" /></button>
         </div>
       </div>
    </div>
