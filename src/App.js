@@ -3,6 +3,7 @@ import Movie from './components/movies.js';
 import shuffle from './components/img/Shuffle.png';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Modal from './components/Modal'
+import MovieDetails from './components/MovieDetail'
 
 const FEATURED_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=25410d167eb58e717d563b65bc206ff7";  
 const SEARCH_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=25410d167eb58e717d563b65bc206ff7&query=";
@@ -19,10 +20,23 @@ function App() {
 
   const [movies, setMovies ] = useState ([]);
   const [visible, setVisible] = useState(6);
+  const [genre, setGenre] = useState([]);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 6);
   }
+
+
+  useEffect(() => {
+    fetch(GENRE_API)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      setGenre(data.results);
+    });
+  });
+
+ 
 
   useEffect(() => {
     fetch(FEATURED_API)
@@ -39,8 +53,8 @@ return (
       <div className="container">
         {movies.slice(0, visible).map((movie) => 
         <Movie key={movie.id}
-          {...movie} />
-        )};
+          {...movie} />  
+        )}
         <Modal showModal={showModal} setShowModal={setShowModal} />
         <div className="button-container">
           <button className="buttonLoad" onClick={showMoreItems}>Load</button>

@@ -1,14 +1,7 @@
-import React from "react";
-import Movie from './movies'
+import React , {useEffect, useState}from "react";
+import App from '../App'
 
-
-const GENRE_API = "https://api.themoviedb.org/3/genre/movie/list?api_key=25410d167eb58e717d563b65bc206ff7"
-
-function setGenre() {
-    
-}
-
-const Modal = ({ showModal, setShowModal, genre_ids }) => {
+const Modal = ({ showModal, setShowModal, id, name }) => {
     return (
         <>                                                                    {/* <> </> react fragment*/}
             {showModal ? 
@@ -21,40 +14,10 @@ const Modal = ({ showModal, setShowModal, genre_ids }) => {
                             <h3>Select genre: </h3>
                             <div className="modalList">
                                 <div className="radio">
-                                        <label>
-                                            <input
-                                            type="radio"
-                                            value={genre_ids}
-                                            />
-                                        Action
-                                    </label>
-                                </div>
-                                <div className="radio">
-                                        <label>
-                                            <input
-                                            type="radio"
-                                            value={genre_ids}
-                                            />
-                                        Adventure
-                                    </label>
-                                </div>
-                                <div className="radio">
-                                        <label>
-                                            <input
-                                            type="radio"
-                                            value={genre_ids}
-                                            />
-                                        Drama
-                                    </label>
-                                </div>
-                                <div className="radio">
-                                        <label>
-                                            <input
-                                            type="radio"
-                                            value={genre_ids}
-                                            />
-                                        Comedy
-                                    </label>
+                                    <div className="genre">
+                                       <input type="radio"></input>
+                                       {id} {name}
+                                    </div>
                                 </div>
                             </div>
                             <div className="modalButton">
@@ -65,7 +28,8 @@ const Modal = ({ showModal, setShowModal, genre_ids }) => {
                 </div> :null }
         </>
     );
-};
+ };
+
 
 
 
