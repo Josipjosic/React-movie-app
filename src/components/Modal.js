@@ -1,7 +1,11 @@
 import React , {useEffect, useState}from "react";
+import { generatePath } from "react-router";
 import App from '../App'
+import Genres from './genres'
 
-const Modal = ({ showModal, setShowModal, id, name }) => {
+
+const Modal = ({ showModal, setShowModal }) => {
+
     return (
         <>                                                                    {/* <> </> react fragment*/}
             {showModal ? 
@@ -15,8 +19,7 @@ const Modal = ({ showModal, setShowModal, id, name }) => {
                             <div className="modalList">
                                 <div className="radio">
                                     <div className="genre">
-                                       <input type="radio"></input>
-                                       {id} {name}
+                                        <Genres />
                                     </div>
                                 </div>
                             </div>
@@ -29,7 +32,6 @@ const Modal = ({ showModal, setShowModal, id, name }) => {
         </>
     );
  };
-
 
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
-const Movie = ({ title, poster_path, release_date, vote_average ,original_language, genre_ids}) => (
+const Movie = ({ title, poster_path, release_date, vote_average ,original_language}) => (
     <div className="movie"> 
         <div className="movie-vote">
             <span >{vote_average}</span>
