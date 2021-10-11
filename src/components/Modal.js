@@ -1,13 +1,13 @@
 import React , {useEffect, useState}from "react";
-import { generatePath } from "react-router";
-import App from '../App'
-import Genres from './genres'
+
+
+const GENRE_API = "https://api.themoviedb.org/3/genre/movie/list?api_key=25410d167eb58e717d563b65bc206ff7";
 
 
 const Modal = ({ showModal, setShowModal }) => {
 
     return (
-        <>                                                                    {/* <> </> react fragment*/}
+        <>                                                            
             {showModal ? 
                 <div className="modalContainer ">
                     <div className="modalMenu">
@@ -31,6 +31,40 @@ const Modal = ({ showModal, setShowModal }) => {
                 </div> :null }
         </>
     );
+
+    function Genres () {
+
+        const [genre, setGenre ] = useState ([]);
+
+
+        useEffect(() => {
+            fetch(GENRE_API)
+            .then((res) => res.json())
+            .then((res) => {
+            setGenre(res.genres)
+            });
+        });
+
+      return(
+          <div>
+              <ul>
+                  {
+                      genre.map((genres)    =>  (
+                      <li key={genres.id}>
+                          <input type="radio" value={genres.id} onClick={() => {
+                               console.log(genres.id)
+                            }}>
+                        </input>
+                        {genres.name}</li>
+                        )
+                    )
+                  }
+              </ul>
+          </div>
+      )
+    
+    }
+
  };
 
 

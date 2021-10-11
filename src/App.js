@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Movie from './components/movies.js';
 import shuffle from './components/img/Shuffle.png';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Modal from './components/Modal'
-import Genres from './components/genres'
 
 const FEATURED_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=25410d167eb58e717d563b65bc206ff7";  
-const SEARCH_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=25410d167eb58e717d563b65bc206ff7&query=";
-const GENRE_API = "https://api.themoviedb.org/3/genre/movie/list?api_key=25410d167eb58e717d563b65bc206ff7";
 
 
 
