@@ -3,12 +3,22 @@ import ReactDOM from 'react-dom';
 import '../src/components/style/index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Movie from './components/movies'
+import {Link} from 'react-router-dom'
+import MovieDetail from './components/movieDetail';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <div>
     <App />
-  </BrowserRouter>,
+    <Router>
+      <Switch>
+        <Route path="/components/movieDetail" exact>
+          <MovieDetail />
+        </Route>
+      </Switch>
+    </Router>
+  </div>,
   document.getElementById('root')
 );
 
