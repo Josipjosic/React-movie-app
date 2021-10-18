@@ -10,11 +10,14 @@ import MovieDetail from './components/movieDetail';
 
 ReactDOM.render(
   <div>
-    <App />
     <Router>
+        <Link to="/components/movieDetail"></Link>
       <Switch>
-        <Route path="/components/movieDetail" exact>
+        <Route  path="/components/movieDetail" component={MovieDetail}>
           <MovieDetail />
+        </Route>
+        <Route  exact path="/" >
+          <App />
         </Route>
       </Switch>
     </Router>

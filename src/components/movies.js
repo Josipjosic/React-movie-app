@@ -9,6 +9,8 @@ const IMG_API =
 
 const Movie = ({ title, poster_path, release_date, vote_average ,original_language, id}) => (
     <div className="movie"> 
+    <Router>
+    <Link to="/components/movieDetail"  style={{ textDecoration: 'none' }}> 
         <div className="movie-vote">
             <span >{vote_average}</span>
         </div>
@@ -17,6 +19,9 @@ const Movie = ({ title, poster_path, release_date, vote_average ,original_langua
             <h3>{title} ({release_date}) </h3>
             <h5 className="movie-lang">Language: {original_language} </h5>
         </div>
+    </Link>
+    </Router>
+    
     </div>
 )
 
